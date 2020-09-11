@@ -220,8 +220,8 @@ public class Main {
                 {1, 2, 3, 4, 5}
         };
 
-        int number = arr[1][2];
-        System.out.println(number);
+        /* output: 3 */
+        System.out.println(arr[1][2]);
 
     }
 }
