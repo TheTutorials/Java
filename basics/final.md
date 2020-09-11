@@ -69,7 +69,11 @@ Java 中的关键词 `final` 可以理解为最终,不可变的意思。下面�
         x = 1;
     }
     ```
-
+    
+* final关键字好处
+- final关键字提高了性能。JVM和Java应用都会缓存final变量
+- final变量可以安全的在多线程环境下进行共享，而不需要额外的同步开销
+- 使用final关键字，JVM会对方法、变量以及类进行优化
 
 reference
 > 1.https://www.baeldung.com/java-final<br/>2.https://stackoverflow.com/questions/15655012/how-does-the-final-keyword-in-java-work-i-can-still-modify-an-object<br/>3.https://www.geeksforgeeks.org/final-keyword-java/
