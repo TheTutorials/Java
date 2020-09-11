@@ -93,7 +93,7 @@ public class Main {
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20191223234043151.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9teWh1Yi5ibG9nLmNzZG4ubmV0,size_16,color_FFFFFF,t_70)
 
 还有一种情况，如果下标索引是负数呢？
-同样，也是排除异常，越界！
+同样，也是抛出异常，越界！
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2019122323413287.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9teWh1Yi5ibG9nLmNzZG4ubmV0,size_16,color_FFFFFF,t_70)
 
 所以说，访问数组下标不能够超出（数组长度-1），且下标索引必须大于等于0。
