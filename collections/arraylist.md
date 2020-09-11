@@ -177,7 +177,34 @@ System.out.println(numbers);
 
 > 注意: 不能在 `foreach` 中删除，否则会报 `ConcurrentModificationException` 异常
 
+### `ArrayList`的`toArray()`方法
+
+> ArrayList提供了一个将List转为数组的一个非常方便的方法，可以直接调用`toArray()`将其转换为数组
+
+* toArray(): 可以直接将集合转换为Object数组
+
+    ``` java
+    ArrayList<Integer> arrayList = new ArrayList<>();
+    arrayList.add(1);
+    arrayList.add(2);
+    arrayList.add(3);
+    arrayList.add(4);
+    Object[] objects = arrayList.toArray();
+    ```
 
 
+* `toArray(T[] a)`: 可以转换成指定类型的数组，当然！如果集合中的类型不一样，会抛出`ArrayStoreException`异常
 
+    ```java
+    ArrayList<Integer> arrayList = new ArrayList<>();
+    arrayList.add(1);
+    arrayList.add(2);
+    arrayList.add(3);
+    arrayList.add(4);
 
+    Integer[] integers = new Integer[arrayList.size()];
+    arrayList.toArray(integers);
+    
+    /* output: [1, 2, 3, 4] */
+    System.out.println(Arrays.toString(integers));
+    ```
