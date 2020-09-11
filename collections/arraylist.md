@@ -208,3 +208,17 @@ System.out.println(numbers);
     /* output: [1, 2, 3, 4] */
     System.out.println(Arrays.toString(integers));
     ```
+* 使用 Java 8 把 `ArrayList` 转换成基本数据类型
+    ``` java
+    List<Integer> numbers = new ArrayList<>(){{
+        add(1);
+        add(2);
+        add(3);
+    }};
+
+    int[] arr = numbers.stream().mapToInt(i -> i).toArray();
+
+    /* output: [1, 2, 3] */
+    System.out.println(Arrays.toString(arr));
+    ```
+
