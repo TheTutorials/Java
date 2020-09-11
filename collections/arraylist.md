@@ -184,11 +184,11 @@ System.out.println(numbers);
 * toArray(): 可以直接将集合转换为Object数组
 
     ``` java
-    ArrayList arrayList = new ArrayList();
-    arrayList.add("1");
-    arrayList.add("2");
-    arrayList.add("3");
-    arrayList.add("4");
+    ArrayList<Integer> arrayList = new ArrayList<>();
+    arrayList.add(1);
+    arrayList.add(2);
+    arrayList.add(3);
+    arrayList.add(4);
     Object[] objects = arrayList.toArray();
     ```
 
@@ -205,6 +205,5 @@ System.out.println(numbers);
     Integer[] integers = new Integer[arrayList.size()];
     arrayList.toArray(integers);
     ```
-
 
 
