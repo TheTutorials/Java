@@ -193,7 +193,7 @@ System.out.println(numbers);
     ```
 
 
-* toArray(Object[] a): 可以转换成指定类型的数组，当然！如果集合中的类型不一样，会抛出`ArrayStoreException`异常
+* `toArray(T[] a)`: 可以转换成指定类型的数组，当然！如果集合中的类型不一样，会抛出`ArrayStoreException`异常
 
     ```java
     ArrayList<Integer> arrayList = new ArrayList<>();
@@ -205,5 +205,4 @@ System.out.println(numbers);
     Integer[] integers = new Integer[arrayList.size()];
     arrayList.toArray(integers);
     ```
-
 
