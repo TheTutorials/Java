@@ -204,5 +204,7 @@ System.out.println(numbers);
 
     Integer[] integers = new Integer[arrayList.size()];
     arrayList.toArray(integers);
+    
+    /* output: [1, 2, 3, 4] */
+    System.out.println(Arrays.toString(integers));
     ```
-
