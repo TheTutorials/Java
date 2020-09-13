@@ -9,6 +9,8 @@ Java教程
 * [断言 aasert 的使用](basics/assertion.md)
 * [String 字符串的使用](basics/string.md)
 
+### 高级特点
+* [如何比较两个小数字](advanced/compare-two-double-variables.md)
 
 ### 集合(collections)
 * [ArrayList 集合](collections/arraylist.md)
