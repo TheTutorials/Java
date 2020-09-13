@@ -1,3 +1,5 @@
+> 订阅 [TheTutorials/Java](https://github.com/TheTutorials/Java) 学习更多 Java 相关的知识
+
 ## 数组
 > 数组是编程语言中最常见的一种数据结构，可以存储多个数据，每一个数组元素存放一个数据，可以通过数组的下标(索引)来访问数组元素
 

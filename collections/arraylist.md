@@ -1,3 +1,5 @@
+> 订阅 [TheTutorials/Java](https://github.com/TheTutorials/Java) 学习更多 Java 相关的知识
+
 ## ArrayList 集合
 在本节中我们将介绍 Java 集合框架中的 `ArrayList` 集合。不像普通数组一旦定义，长度不可以改变，`ArrayList` 长度可以根据实际需要进行扩容。并且提供了更多操作数据元素的数据结构。
 

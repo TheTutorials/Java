@@ -14,3 +14,6 @@ Java教程
 
 ### 集合(collections)
 * [ArrayList 集合](collections/arraylist.md)
+
+### 多线程(multiple thread)
+* [实现多线程的方式](multithread/implementing-thread.md)

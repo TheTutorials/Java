@@ -1,3 +1,5 @@
+> 订阅 [TheTutorials/Java](https://github.com/TheTutorials/Java) 学习更多 Java 相关的知识
+
 ## Java 如何比较两个小数
 
 在 Java 程序设计语言中，小数的比较不能单纯的使用关系运算符 `>`, `<`, `==` 等进行比较，因为比较的时候会存在精度的丢失。

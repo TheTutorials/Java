@@ -1,3 +1,5 @@
+> 订阅 [TheTutorials/Java](https://github.com/TheTutorials/Java) 学习更多 Java 相关的知识
+
 ## Java 中下划线分隔数字
 Java 7 以后，数字文字中数字之间的任意位置都可以出现任何数量的下划线字符（`_`）,通过下划线(`_`)你可以把数字按组进行分开。从而可以可以提高代码的可读性。
 

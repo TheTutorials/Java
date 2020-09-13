@@ -1,3 +1,5 @@
+> 订阅 [TheTutorials/Java](https://github.com/TheTutorials/Java) 学习更多 Java 相关的知识
+
 ## 深入理解 `String` 类
 Java 中的 `String` 表示一个字符序列(字符串)。这是一个不可变的对象，一旦创建不能修改。
 

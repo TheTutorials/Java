@@ -1,3 +1,5 @@
+> 订阅 [TheTutorials/Java](https://github.com/TheTutorials/Java) 学习更多 Java 相关的知识
+
 ## Final 关键词
 Java 中的关键词 `final` 可以理解为最终,不可变的意思。下面介绍 `final` 的使用场景。
 

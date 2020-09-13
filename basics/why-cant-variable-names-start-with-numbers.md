@@ -1,3 +1,5 @@
+> 订阅 [TheTutorials/Java](https://github.com/TheTutorials/Java) 学习更多 Java 相关的知识
+
 ## 为什么变量名不能够以数字开头
 
 基本所有编程语言都有一个规定，变量名命名不能够以数字开头。如下面的标示符是非法的标识符。
