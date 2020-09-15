@@ -19,3 +19,6 @@ Java教程
 
 ### 多线程(multiple thread)
 * [实现多线程的方式](multithread/implementing-thread.md)
+
+### 第三方库的使用
+* [Jeids的使用](third/jedis.md)
