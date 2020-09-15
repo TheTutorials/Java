@@ -21,4 +21,4 @@ Java教程
 * [实现多线程的方式](multithread/implementing-thread.md)
 
 ### 第三方库的使用
-* [Jeids的使用](third/jedis.md)
+* [Jedis的使用](third/jedis.md)
