@@ -14,11 +14,13 @@ Java教程
 
 ### 集合(collections)
 * [ArrayList 集合](collections/arraylist.md)
+* [ArrayList VS LinkedList的区别]()
 * [Stack 栈](collections/stack.md)
 * [Deque 队列接口](collections/queue.md)
 
 ### 多线程(multiple thread)
 * [实现多线程的方式](multithread/implementing-thread.md)
+* [线程的生命周期](multithread/thread_lifecycle.md)
 
 ### 第三方库的使用
 * [Jedis的使用](third/jedis.md)
