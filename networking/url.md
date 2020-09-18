@@ -49,3 +49,27 @@ Wikipedia: https://zh.wikipedia.org/wiki/%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E5
     assert url.getFile().equals("/w/index.php?title=Special:随机页面为例");
     assert url.getQuery().equals("title=Special:随机页面为例");
     ```
+
+* 使用 `URL` 下载百度首页
+
+    ``` java
+    BufferedReader reader = null;
+    try {
+        URL url = new URL("https://www.baidu.com/");
+        reader = new BufferedReader(new InputStreamReader(url.openStream()));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    } finally {
+        if (reader != null) {
+            try {
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    ```
