@@ -15,4 +15,6 @@
 * [Files 工具类常用方法](basics/file_function.md)
 
 ## Java 集合面试题
+* [Collection 和 Collections 的区别](collections/collection_vs_collections.md)
+* [ArrayList 和 LinkedList 的区别](collections/arraylist_vs_linkedlist.md)
 
