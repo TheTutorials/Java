@@ -18,3 +18,10 @@
 * [Collection 和 Collections 的区别](collections/collection_vs_collections.md)
 * [ArrayList 和 LinkedList 的区别](collections/arraylist_vs_linkedlist.md)
 
+## 多线程面试题
+
+* [并行和并发的区别](threads/parallel_vs_concurrency.md)
+* [线程(Thread)和进程(Process)之间的区别](interview/threads/thread_vs_process.md)
+* [线程创建的几种方式](../multithread/implementing-thread.md)
+* [线程的状态有哪些](../multithread/thread_lifecycle.md)
+

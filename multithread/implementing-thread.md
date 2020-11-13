@@ -87,6 +87,7 @@ Java 本身提供了对多线程的支持，多线程允许并发的执行程序
                 Thread.currentThread().getName(), Thread.currentThread().getId())).start();
     }
     ```
+* 通过 `callable` 接口实现又返回值的线程。
 
 ### 使用 `Thread` 还是 `Runnable`
 * 如果我们的类继承了 `Thread`，那么将无法继承其他的类,因为 Java 不支持多继承,而当我们实现 `Runnable` 接口还能继续继承其他的类
