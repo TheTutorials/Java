@@ -9,6 +9,7 @@ Java教程
 * [数组的学习](basics/Array.md)
 * [断言 aasert 的使用](basics/assertion.md)
 * [String 字符串的使用](basics/string.md)
+* [Scanner实现输入功能](basic/scanner.md)
 
 ### 高级特点
 * [如何比较两个小数字](advanced/compare-two-double-variables.md)
