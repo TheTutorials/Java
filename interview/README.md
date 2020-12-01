@@ -6,6 +6,7 @@
 * [final 在 Java 中有什么作用](../basics/final.md)
 * [Math.round(-1.5) 结果是多少](basics/round_function.md)
 * [Java 中的 8 中基本数据类型](basics/8_data_types.md)
+* [String 可以被继承么](basics/string_cant_extend.md)
 * [String, StringBuilder, StringBuffer 之间的区别](basics/string_vs_stringbuilder_vs_stringbuffer.md)
 * [String str = "i" 与 String str = new String("i) 一样么](basics/const_heap_string.md)
 * [如何反转一个字符串](basics/reverse_string.md)
