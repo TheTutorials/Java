@@ -14,6 +14,7 @@
 * [抽象类可以使用 final 修饰么](basics/interview/abstract_final.md)
 * [抽象类和接口之间的区别](basics/interface_vs_abstract.md)
 * [Files 工具类常用方法](basics/file_function.md)
+* [抽象类和接口的区别](basics/abstract_vs_interface.md)
 
 ## Java 集合面试题
 * [Collection 和 Collections 的区别](collections/collection_vs_collections.md)
