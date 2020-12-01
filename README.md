@@ -13,6 +13,8 @@ Java教程
 
 ### 高级特点
 * [如何比较两个小数字](advanced/compare-two-double-variables.md)
+* [反射](advanced/reflection.md)
+* [设计模式-单例模式](advanced/singleton.md)
 
 ### 集合(collections)
 * [ArrayList 集合](collections/arraylist.md)
