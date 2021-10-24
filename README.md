@@ -1,39 +1,7 @@
-# Java
-Java 工程师学习路线
+# Java 架构师学习路线
 
-### 基础(basics)
-* [运算符](basics/operator.md)
-* [final 关键词](basics/final.md)
-* [使用下划线分隔数字](basics/underscores-in-numeric-literals.md)
-* [为什么变量名不能以数字开头 ?](basics/why-cant-variable-names-start-with-numbers.md)
-* [数组的学习](basics/Array.md)
-* [断言 aasert 的使用](basics/assertion.md)
-* [String 字符串的使用](basics/string.md)
-* [Scanner实现输入功能](basics/scanner.md)
+#### [JavaSE 学习路线](docs/JavaSE)
+#### [前端学习路线](docs/数据库)
+#### [数据库学习路线](docs/数据库)
 
-### 高级特点
-* [如何比较两个小数字](advanced/compare-two-double-variables.md)
-* [反射](advanced/reflection.md)
-* [设计模式-单例模式](advanced/singleton.md)
 
-### 集合(collections)
-* [ArrayList 集合](collections/arraylist.md)
-* [ArrayList VS LinkedList的区别]()
-* [Stack 栈](collections/stack.md)
-* [Deque 队列接口](collections/queue.md)
-
-### 多线程(multiple thread)
-* [实现多线程的方式](multithread/implementing-thread.md)
-* [线程的生命周期](multithread/thread_lifecycle.md)
-
-### 网络编程(networking)
-* [Socket 编程](networking/socket.md)
-* [什么是 URL](networking/url.md)
-
-### 第三方库的使用
-* [Jedis的使用](third/jedis.md)
-
-### Java 面试题
-* [Java 面试题](interview)
-
-### Spring Boot 教程
