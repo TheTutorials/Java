@@ -359,3 +359,203 @@ for (; ; ) {
 System.out.println("聊天结束");
 ```
 </details>
+
+<details>
+<summary>例题: 系统随机生成一个数字，用户反复猜测，系统会提示猜大/小，直到猜测正确<br/>
+</summary>
+
+``` java
+Random random = new Random();
+int randomNumber = random.nextInt(100) + 1; //生成1-100之间的数字
+System.out.print("系统已经为您随机生成了一个数字，请开始猜测:");
+Scanner scanner = new Scanner(System.in);
+int count = 0; //统计猜测的数量
+for (; ; ) {
+    int guessNumber = scanner.nextInt();
+    count++;
+    if (guessNumber < randomNumber) {
+        System.out.print("猜测小了，请重新猜测:");
+    } else if (guessNumber > randomNumber) {
+        System.out.print("猜测大了，请重新猜测:");
+    } else {
+        System.out.println("恭喜您，猜对啦!");
+        break;
+    }
+}
+System.out.println("您共猜测了" + count + "次");
+```
+</details>
+
+`for` 循环嵌套
+> 一个for循环嵌套若干个for循环
+
+<details>
+<summary>例题: 打印5行5列的数字5<br/>
+
+```
+5	5	5	5	5
+5	5	5	5	5
+5	5	5	5	5
+5	5	5	5	5
+5	5	5	5	5
+```
+</summary>
+
+``` java
+for (int i = 1; i <= 5; ++i) {
+    for (int j = 1; j <= 5; j++) {
+        System.out.print(5 + "\t");
+    }
+    System.out.println();
+}
+```
+</details>
+
+循环嵌套的执行过程
+* 外层循环循环一次，内层循环要循环多次
+
+
+<details>
+<summary>例题: 打印如下图形<br/>
+
+```
+*	*	*	*	*
+*	*	*	*	*
+*	*	*	*	*
+*	*	*	*	*
+*	*	*	*	*
+```
+</summary>
+
+``` java
+for (int i = 1; i <= 5; ++i) {
+    for (int j = 1; j <= 5; ++j) {
+        System.out.print('*' + "\t");
+    }
+    System.out.println();
+}
+```
+</details>
+
+<details>
+<summary>例题: 打印如下图形<br/>
+
+```
+*	
+*	*	
+*	*	*	
+*	*	*	*	
+*	*	*	*	*
+```
+</summary>
+
+``` java
+for (int i = 1; i <= 5; ++i) {
+  for (int j = 1; j <= i; ++j) {
+    System.out.print('*' + "\t");
+  }
+  System.out.println();
+}
+```
+</details>
+
+<details>
+<summary>例题: 打印如下图形<br/>
+
+```
+*	*	*	*	*	
+*	*	*	*	
+*	*	*	
+*	*	
+*
+```
+</summary>
+
+``` java
+for (int i = 5; i >= 1; --i) {
+  for (int j = 1; j <= i; ++j) {
+    System.out.print('*' + "\t");
+  }
+  System.out.println();
+}
+```
+</details>
+
+<details>
+<summary>例题: 打印如下图形<br/>
+
+```
+*	*	*	*	*	
+*	*	*	*	
+*	*	*	
+*	*	
+*
+```
+</summary>
+
+``` java
+for (int i = 1; i <= 5; ++i) {
+  for (int j = 1; j < i; j++) {
+    System.out.print('\t');
+  }
+  for (int k = 1; k <= 6 - i; ++k) {
+    System.out.print("*\t");
+  }
+  System.out.println();
+}
+```
+</details>
+
+<details>
+<summary>例题: 打印如下图形<br/>
+
+```
+				*	
+			*	*	*	
+		*	*	*	*	*	
+	*	*	*	*	*	*	*	
+*	*	*	*	*	*	*	*	*
+```
+</summary>
+
+``` java
+for (int i = 1; i <= 5; ++i) {
+  for (int j = 1; j <= 5 - i; j++) {
+    System.out.print('\t');
+  }
+  for (int k = 1; k <= 2 * i - 1; ++k) {
+    System.out.print("*\t");
+  }
+  System.out.println();
+}
+```
+</details>
+
+<details>
+<summary>例题: 打印九九乘法表<br/>
+
+```
+1*1=1	
+1*2=2	2*2=4	
+1*3=3	2*3=6	3*3=9	
+1*4=4	2*4=8	3*4=12	4*4=16	
+1*5=5	2*5=10	3*5=15	4*5=20	5*5=25	
+1*6=6	2*6=12	3*6=18	4*6=24	5*6=30	6*6=36	
+1*7=7	2*7=14	3*7=21	4*7=28	5*7=35	6*7=42	7*7=49	
+1*8=8	2*8=16	3*8=24	4*8=32	5*8=40	6*8=48	7*8=56	8*8=64	
+1*9=9	2*9=18	3*9=27	4*9=36	5*9=45	6*9=54	7*9=63	8*9=72	9*9=81
+```
+</summary>
+
+``` java
+for (int i = 1; i <= 9; ++i) {
+  for (int j = 1; j <= i; ++j) {
+    System.out.print(j + "*" + i + "=" + j * i + "\t");
+  }
+  System.out.println();
+}
+```
+</details>
+
+
+
