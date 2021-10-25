@@ -557,5 +557,172 @@ for (int i = 1; i <= 9; ++i) {
 ```
 </details>
 
+<details>
+<summary>例题: 打印1-100之间的所有素数<br/>
+
+```
+素数: 只能被1和它本身整出的数字，注意1不是素数
+```
+</summary>
+
+``` java
+System.out.println("1-100之间的所有素数如下:");
+for (int i = 1; i <= 100; ++i) {
+  if (i == 1) {
+    continue;
+  }
+  boolean isPrimer = true;
+  for (int j = 2; j < i; ++j) {
+    if (i % j == 0) {
+      isPrimer = false;
+      break;
+    }
+  }
+  if (isPrimer) {
+    System.out.print(i + "\t");
+  }
+}
+```
+</details>
+
+<details>
+<summary>例题: 打印1-100之间的所有素数(优化)<br/>
+
+```
+素数: 只能被1和它本身整出的数字，注意1不是素数
+```
+</summary>
+
+``` java
+System.out.println("1-100之间的所有素数如下:");
+for (int i = 1; i <= 100; ++i) {
+  if (i == 1) {
+    continue;
+  }
+  boolean isPrimer = true;
+  for (int j = 2; j <= Math.sqrt(i); ++j) {
+    if (i % j == 0) {
+      isPrimer = false;
+      break;
+    }
+  }
+  if (isPrimer) {
+    System.out.print(i + "\t");
+  }
+}
+```
+</details>
+
+`while` 循环
+
+<details>
+<summary>例题: 打印1-10<br/>
+</summary>
+
+``` java
+int i = 1;
+while (i <= 10) {
+  System.out.print(i + "\t");
+  i++;
+}
+```
+</details>
+
+<details>
+<summary>例题: 计算 1/1 + 1/2 + 1/3 + ... + 1/n<br/>
+</summary>
+
+``` java
+System.out.print("请输入项数n:");
+int n = new Scanner(System.in).nextInt();
+double sum = 0;
+int i = 1;
+while (i <= n) {
+  sum += 1.0 / i;
+  i++;
+}
+System.out.println("数列前" + n + "项之和是" + sum);
+```
+</details>
+
+while 循环和 for的区别
+* while 适用于明确循环条件，但是不明确循环次数
+* for 主要适用于明确循环次数的情况
+
+<details>
+<summary>例题: 逆序输出一个数字<br/>
+</summary>
+
+``` java
+System.out.print("请输入一个数字:");
+Scanner scanner = new Scanner(System.in);
+int number = scanner.nextInt();
+number = number < 0 ?  -number :number; //求绝对值
+while (number != 0) {
+  int remainder = number % 10;
+  System.out.print(remainder);
+  number /= 10;
+}
+```
+</details>
+
+<details>
+<summary>例题: 逆序一个数字<br/>
+</summary>
+
+``` java
+System.out.print("请输入一个数字:");
+Scanner scanner = new Scanner(System.in);
+int number = scanner.nextInt();
+boolean isNegative = number < 0;
+number = isNegative ?  -number :number; //求绝对值
+int reversedNumber = 0;
+int temp = number;
+while (temp != 0) {
+  int remainder = temp % 10;
+  reversedNumber = reversedNumber * 10 + remainder;
+  temp /= 10;
+}
+reversedNumber = isNegative ? -reversedNumber : reversedNumber;
+System.out.println("数字" + number + "逆序后的结果为" + reversedNumber);
+```
+</details>
+
+`do-while` 循环 
+
+<details>
+<summary>例题: 输入若干个整数求和，直到输入的数字为0结束<br/>
+</summary>
+
+``` java
+Scanner scanner = new Scanner(System.in);
+int sum = 0;
+int number;
+do {
+  System.out.print("请输入一个数字:");
+  number = scanner.nextInt();
+  sum = sum + number;
+} while (number != 0);
+System.out.println("若干个数字之和是" + sum);
+```
+</details>
+
+观察如下代码的执行结果
+``` java
+int i = 1;
+while (i <= 6); {
+  System.out.print(6);
+  i++;
+}
+```
+
+<details>
+<summary>查看答案<br/>
+</summary>
+死循环
+</details>
+
+
+
 
 
