@@ -723,6 +723,60 @@ while (i <= 6); {
 </details>
 
 
+### 数组
 
+一维数组的声明
+``` java
+数据类型[] 变量名 = new 数据类型[数组长度]
+int[] array = new int[10]; //默认值为0
+int array[] = new int[10]; //c语言风格
+int[] array = new int[]{1, 2, 3}; //声明并初始化
+int[] array = {1, 2, 3}; //简写
+```
+
+默认值
+* byte，char, short，int，long，默认为0
+* float, double 默认为 0.0
+* boolean 默认为 false
+
+读取数组长度
+``` java
+int[] nums = {1, 2, 3, 4, 5};
+System.out.println("数组长度:" + nums.length);
+```
+
+下标越界
+* 数组长度为`n`的数组，数组下标范围为 0 ~ n - 1，超出这个区间将抛出数组下标越界异常(ArrayIndexOutOfBoundsException)
+``` java
+int[] nums = {1, 2, 3, 4, 5};
+System.out.println(nums[-1]); //Index -1 out of bounds for length 5
+System.out.println(nums[5]); //Index 5 out of bounds for length 5
+```
+
+访问一维数组元素 (下标)
+``` c
+int[] nums = {1, 2, 3, 4, 5};
+System.out.println("第1个元素是:" + nums[0]); //1
+System.out.println("第2个元素是:" + nums[0]); //2
+System.out.println("第3个元素是:" + nums[0]); //3
+System.out.println("第4个元素是:" + nums[0]); //4
+System.out.println("第5个元素是:" + nums[0]); //5
+```
+
+访问一维数组元素 (循环+下标)
+``` c
+int[] nums = {1, 2, 3, 4, 5};
+for (int i = 0; i < nums.length; ++i) {
+  System.out.println("第" + (i + 1) + "元素是:" + nums[i]);
+}
+```
+
+访问一维数组元素 (for-each)
+``` c
+int[] nums = {1, 2, 3, 4, 5};
+for (int num : nums) {
+  System.out.print(num + "\t");
+}
+```
 
 
