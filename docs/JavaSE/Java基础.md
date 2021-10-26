@@ -779,4 +779,264 @@ for (int num : nums) {
 }
 ```
 
+注意：数组名存放在栈空间，而真实的数据元素存储在堆空间
 
+<details>
+<summary>例题: 录入5名学生的年龄到数组中并且打印<br/>
+</summary>
+
+``` java
+Scanner scanner = new Scanner(System.in);
+int[] age = new int[5];
+for (int i = 0; i < age.length; ++i) {
+  System.out.print("请输入第" + (i + 1) + "名学生的年龄:");
+  age[i] = scanner.nextInt();
+}
+System.out.println("5名学生的年龄如下:");
+for (int i = 0; i < age.length; ++i) {
+  System.out.print(age[i] + "\t");
+}
+```
+</details>
+
+<details>
+<summary>例题: 数组任意下标位置插入元素值<br/>
+
+```
+编码实现在数组nums中任意位置插入元素值，数组中的-1表示为空
+int[] nums = {1, 2, 3, 4, -1};
+```
+</summary>
+
+``` java
+int[] nums = {1, 2, 3, 4, -1};
+Scanner scanner = new Scanner(System.in);
+System.out.print("请输入要插入的下标:");
+int index = scanner.nextInt();
+System.out.print("请输入要插入的元素值:");
+int key = scanner.nextInt();
+if (index < 0 || index >= nums.length) {
+  System.out.println("插入下标不合法");
+} else {
+  for (int i = nums.length - 2; i >= index; --i) {
+    nums[i + 1] = nums[i];
+  }
+  nums[index] = key;
+  System.out.println("插入后的数组元素如下:");
+  for (int i = 0; i < nums.length; ++i) {
+    System.out.print(nums[i] + "\t");
+  }
+}
+```
+</details>
+
+<details>
+<summary>例题: 数组任意下标位置插入元素值<br/>
+
+```
+编码实现在数组nums中任意位置删除元素值，删除后后续元素需要往前移动，后续元素使用0填充
+int[] nums = {1, 2, 3, 4, 5}; 如删除元素2以后的结果为{1, 3, 4, 5, 0}
+```
+</summary>
+
+``` java
+int[] nums = {1, 2, 3, 4, 5};
+Scanner scanner = new Scanner(System.in);
+System.out.print("请输入要删除的数组元素下标:");
+int index = scanner.nextInt();
+if (index < 0 || index > nums.length - 1) {
+  System.err.println("下标非法");
+} else {
+  System.out.println("删除的元素值是:" + nums[index]);
+  for (int i = index; i < nums.length - 1; ++i) {
+    nums[i] = nums[i + 1];
+  }
+  nums[nums.length - 1] = 0;
+  System.out.println("删除后的结果如下:");
+  for (int i = 0; i < nums.length; i++) {
+    System.out.print(nums[i] + "\t");
+  }
+}
+```
+</details>
+
+<details>
+<summary>例题:遍历一维度数组中的所有元素，把所有奇数+1变为偶数<br/>
+</summary>
+
+``` java
+int[] nums = {1, 2, 3, 4, 5};
+for (int i = 0; i < nums.length; ++i) {
+  if (nums[i] % 2 == 1) {
+    nums[i] += 1;
+  }
+}
+System.out.println("转换后的数组如下");
+for (int num : nums) {
+  System.out.print(num + "\t");
+}
+```
+</details>
+
+数组的优缺点
+* 能够通过下标快速索引存取元素
+* 所有元素的数据类型必须相同
+* 内存空间必须连续，导致内存的利用率不高
+* 容量不能动态增长
+* 插入，删除元素又可能需要移动多个元素，时间复杂度较高
+
+
+<details>
+<summary>例题: 数组元素的拷贝<br/>
+
+```
+编码实现把数组nums的后n-1元素拷贝到新的数组中
+int[] nums = {1, 2, 3, 4, 5}
+```
+</summary>
+
+``` java
+int[] nums = {1, 2, 3, 4, 5};
+int[] newNums = new int[nums.length - 1];
+for (int i = 1; i < nums.length; ++i) {
+  newNums[i - 1] = nums[i];
+}
+System.out.println("拷贝后的新数组元素如下");
+for (int i = 0; i < newNums.length; i++) {
+  System.out.print(newNums[i] + "\t");
+}
+```
+</details>
+
+<details>
+<summary>例题: 数组元素的拷贝(使用JDK自带的库)<br/>
+
+```
+编码实现把数组nums的后n-1元素拷贝到新的数组中
+int[] nums = {1, 2, 3, 4, 5}
+```
+</summary>
+
+``` java
+int[] nums = {1, 2, 3, 4, 5};
+int[] newNums = new int[nums.length - 1];
+System.arraycopy(nums, 1, newNums, 0, nums.length - 1);
+System.out.println("拷贝后的新数组元素如下");
+  for (int num : newNums) {
+    System.out.print(num + "\t");
+  }
+}
+```
+</details>
+
+注意：数组的拷贝不能简单的数组名复制，如 `arrayCopy = array`，因为数组名只是存储了数组在堆区中的地址信息，而不是元素值
+
+<details>
+<summary>例题: 编码实现统计任意一个正整数每一个数字出现的次数<br/>
+</summary>
+
+``` java
+Scanner scanner = new Scanner(System.in);
+System.out.print("请输入一个正整数:");
+int num = scanner.nextInt();
+int[] countTimes = new int[10];
+
+int temp = num;
+while (temp != 0) {
+  countTimes[temp % 10]++;
+  temp /= 10;
+}
+for (int i = 0; i < countTimes.length; ++i) {
+  if (countTimes[i] != 0) {
+    System.out.println(i + "出现了" + countTimes[i] + "次");
+  }
+} 
+```
+</details>
+
+
+<details>
+<summary>例题: 统计若干个学生的成绩，并打印班级平均分<br/>
+</summary>
+
+``` java
+Scanner scanner = new Scanner(System.in);
+System.out.print("请输入班级人数:");
+int num = scanner.nextInt();
+
+double[] scores = new double[num];
+for (int i = 0; i < scores.length; ++i) {
+  System.out.print("请输入第" + (i + 1) + "个学生的成绩:");
+  scores[i] = scanner.nextDouble();
+}
+
+System.out.println("班级各位学生的成绩如下:");
+double sum = 0;
+for (double score : scores) {
+  System.out.print(score + "\t");
+  sum += score;
+}
+System.out.println("\n班级平均分是:" + sum / scores.length);
+```
+</details>
+
+`Arrays` 工具类的可以实现对数组进行多种比较常见的操作
+* toString() 打印数组元素
+  ``` java
+  int[] nums = {1, 2, 3, 4, 5};
+  System.out.println(Arrays.toString(nums)); // [1, 2, 3, 4, 5]
+  ```
+* fill() 填充元素
+  ``` java
+  int[] nums = new int[5];
+  Arrays.fill(nums, 5);
+  System.out.println(Arrays.toString(nums)); // [5, 5, 5, 5, 5]
+  ```
+* equals 数组元素的比较
+  ``` java
+  int[] nums1 = {1, 2, 3, 4, 5};
+  int[] nums2 = {1, 2, 3, 4, 5};
+  System.out.println(Arrays.equals(nums1, nums2)); // true
+  ```
+* sort 排序
+  ``` java
+  int[] nums = {1, 3, 5, 7, 9, 2, 4, 6, 8, 10}; 
+  Arrays.sort(nums);
+  System.out.println(Arrays.toString(nums)); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  ```
+* binarySearch() 折半查找
+  ``` java
+  int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  System.out.println(Arrays.binarySearch(nums, 1)); // 0
+  System.out.println(Arrays.binarySearch(nums, 6)); // 5
+  System.out.println(Arrays.binarySearch(nums, 10)); // 9
+  System.out.println(Arrays.binarySearch(nums, 50)); // -11
+  ```
+
+
+<details>
+<summary>例题: 求解数组元素的最大值(方法一:手动求解)<br/>
+</summary>
+
+``` java
+int[] nums = {1, 3, 5, 7, 9, 2, 4, 6, 8};
+int max = nums[0];
+for (int i = 1; i < nums.length; ++i) {
+  if (nums[i] > max) {
+    max = nums[i];
+  }
+}
+System.out.println("数组中的最大值是:" + max);
+```
+</details>
+
+<details>
+<summary>例题: 求解数组元素的最大值(方法二:排序)<br/>
+</summary>
+
+``` java
+int[] nums = {1, 3, 5, 7, 9, 2, 4, 6, 8};
+Arrays.sort(nums);
+System.out.println("数组中的最大值是:" + nums[nums.length - 1]);
+```
+</details>
