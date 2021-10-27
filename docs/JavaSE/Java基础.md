@@ -1040,3 +1040,62 @@ Arrays.sort(nums);
 System.out.println("数组中的最大值是:" + nums[nums.length - 1]);
 ```
 </details>
+
+二维数组
+
+声明格式
+``` java
+数据类型[][] 数组名 = new int[行数][列数]
+```
+
+二维数组的初始化
+``` java
+int[][] nums = new int[][]{
+        {1, 2, 3, 4},
+        {5, 6, 7, 8}
+}; //每行的列数一样
+
+int[][] nums = new int[][]{
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10},
+        {11, 12, 13, 14, 15},
+        {}
+}; //每行的列数可以不一样
+
+int[][] nums = new int[5][]; // 先指定行数
+nums[0] = new int[1]; // 第一行的长度为1
+nums[1] = new int[2]; // 第二行的长度为2
+nums[2] = new int[3];
+nums[3] = new int[4]; // 第三行的长度为4
+nums[4] = new int[5]; // 第四行的长度为5
+```
+
+<details>
+<summary>例题: 杨辉三角<br/>
+</summary>
+
+``` java
+System.out.print("请输入杨辉三角的行数:");
+Scanner scanner = new Scanner(System.in);
+int lines = scanner.nextInt();
+int[][] triangle = new int[lines][];
+for (int i = 0; i < lines; ++i) {
+  triangle[i] = new int[i + 1];
+  for (int j = 0; j <= i; ++j) {
+    if (i == j || j == 0) {
+      triangle[i][j] = 1;
+    } else {
+      triangle[i][j] = triangle[i - 1][j] + triangle[i - 1][j - 1];
+    }
+  }
+}
+
+for (int i = 0; i < lines; ++i) {
+  for (int j = 0; j <= i; ++j) {
+    System.out.print(triangle[i][j] + "\t");
+  }
+  System.out.println("\n");
+}
+```
+</details>
