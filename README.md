@@ -3,7 +3,7 @@
 ### [Java SE](docs/JavaSE)
 * [Java基础](docs/JavaSE/Java基础.md)
 * [面向对象](docs/JavaSE/面向对象.md)
-* [核心内库]()
+* [集合](docs/JavaSE/集合.md)
 
 ### [前端](docs/前端)
 * [HTML基本标签]()
