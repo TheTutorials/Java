@@ -7,6 +7,8 @@
 * [异常处理](docs/JavaSE/异常处理.md)
 * [IO处理](docs/JavaSE/IO处理.md)
 * [多线程](docs/JavaSE/多线程.md)
+* [网络编程](docs/JavaSE/网络编程.md)
+* [设计模式](docs/JavaSE/设计模式.md)
 
 ### [前端](docs/前端)
 * [HTML基本标签]()
