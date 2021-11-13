@@ -821,3 +821,216 @@ commit ;
     ALTER TABLE employee
         ADD CONSTRAINT emp_dept_fk FOREIGN KEY (dept_id) REFERENCES dept (id) ON DELETE CASCADE;
     ```
+
+## 表之间的关系
+* 一对一
+* 一对多
+    <details>
+    <summary>例题: 省份和城市<br/>
+    </summary>
+
+    ``` sql
+    CREATE TABLE city
+    (
+        id          INT PRIMARY KEY AUTO_INCREMENT,
+        name        VARCHAR(20) NOT NULL,
+        description VARCHAR(20) DEFAULT NULL,
+        province_id INT,
+        CONSTRAINT city_province_fk FOREIGN KEY (province_id) REFERENCES province (id)
+    );
+
+
+    CREATE TABLE city
+    (
+        id          INT PRIMARY KEY AUTO_INCREMENT,
+        name        VARCHAR(20) NOT NULL,
+        description VARCHAR(20) DEFAULT NULL,
+        province_id INT,
+        CONSTRAINT city_province_fk FOREIGN KEY (province_id) REFERENCES province (id)
+    );
+    ```
+    <img src="../../images/database/一对多关系.png" width="300">
+    </details>
+* 多对多
+    <details>
+    <summary>例题: 演员和角色<br/>
+    </summary>
+
+    ``` sql
+    CREATE TABLE actor
+    (
+        id   INT PRIMARY KEY AUTO_INCREMENT,
+        name VARCHAR(20) NOT NULL
+    );
+
+    CREATE TABLE role
+    (
+        id   INT PRIMARY KEY AUTO_INCREMENT,
+        name VARCHAR(20) NOT NULL
+    );
+
+    CREATE TABLE actor_role
+    (
+        id       INT PRIMARY KEY AUTO_INCREMENT,
+        actor_id INT NOT NULL,
+        role_id  INT NOT NULL
+    );
+
+    ALTER TABLE actor_role
+        ADD FOREIGN KEY (actor_id) REFERENCES actor (id);
+
+    ALTER TABLE actor_role
+        ADD FOREIGN KEY (role_id) REFERENCES role (id);
+
+    ```
+    <img src="../../images/database/多对多关系.png" width="300">
+    </details>
+
+## 多表查询
+``` sql
+CREATE TABLE category
+(
+    id   INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE product
+(
+    id          INT PRIMARY KEY AUTO_INCREMENT,
+    NAME        VARCHAR(20) NOT NULL,
+    price       DOUBLE      NOT NULL,
+    category_id INT,
+    FOREIGN KEY (category_id) REFERENCES category (id)
+);
+```
+
+<details>
+<summary>例题: 笛卡尔积<br/>
+</summary>
+
+``` sql
+SELECT *
+FROM product,
+     category;
+```
+</details>
+
+<details>
+<summary>例题: 查询商品信息和对应的分类信息<br/>
+</summary>
+
+``` sql
+SELECT *
+FROM product,
+     category
+WHERE product.category_id = category.id;
+```
+</details>
+
+<details>
+<summary>例题: 查询商品名称，价格，及分类<br/>
+</summary>
+
+``` sql
+SELECT p.NAME AS '商品名称', p.price AS '商品价格', c.name AS '商品分类'
+FROM product p,
+     category c
+WHERE p.category_id = c.id;
+```
+</details>
+
+<details>
+<summary>例题: 查询苹果手机所在的分类信息<br/>
+</summary>
+
+``` sql
+SELECT p.NAME AS '商品名称', c.name AS '商品分类'
+FROM product p,
+     category c
+WHERE p.category_id = c.id AND p.NAME like '%Iphone%';
+```
+</details>
+
+<details>
+<summary>例题: 左外连接<br/>
+</summary>
+
+``` sql
+SELECT *
+FROM category
+         LEFT JOIN product p on category.id = p.category_id
+```
+</details>
+
+<details>
+<summary>例题: 查询每个分类下的商品数量<br/>
+</summary>
+
+``` sql
+SELECT *
+FROM product p
+         right join category c on c.id = p.category_id;
+```
+</details>
+
+## 子查询
+<details>
+<summary>例题: 查询最便宜的商品信息<br/>
+</summary>
+
+``` sql
+SELECT *
+FROM product
+where price = (SELECT MIN(price) FROM product);
+```
+</details>
+
+<details>
+<summary>例题: 查询手机分类下的商品名称和价格<br/>
+</summary>
+
+``` sql
+SELECT p.NAME '商品名称', p.price '商品价格'
+FROM product p
+WHERE p.category_id = (SELECT c.id FROM category c WHERE c.name = '手机')
+```
+</details>
+
+<details>
+<summary>例题: 查询商品价格大于10000元的商品名称，价格，分类信息<br/>
+</summary>
+
+``` sql
+SELECT p.NAME '商品名称', p.price '商品价格', c.name '商品分类'
+FROM product p
+         INNER JOIN (SELECT * FROM category) c
+WHERE p.category_id = c.id
+  AND p.price > 10000;
+```
+</details>
+
+<details>
+<summary>例题: 查询商品价格大于10000的商品分类名称<br/>
+</summary>
+
+``` sql
+SELECT name
+FROM category
+WHERE id IN (SELECT category_id FROM product WHERE price > 10000)
+```
+</details>
+
+<details>
+<summary>例题: 查询手机分类和电脑分类的下的所有商品信息<br/>
+</summary>
+
+``` sql
+SELECT *
+FROM product
+WHERE category_id IN (SELECT id FROM category WHERE category.name IN ('手机', '电脑'))
+```
+</details>
+
+## 数据库设计三范式
+
+## 数据设计反三范式
