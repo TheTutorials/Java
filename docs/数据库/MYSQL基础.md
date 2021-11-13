@@ -683,3 +683,141 @@ DELETE 和 TRUNCATE 对主键自增的影响
 
 * DELETE 删除后，下次插入的主键接着最后一条被删除的主键
 * TRUNCATE 删除后，主键从1开始
+
+## 非空约束
+``` sql
+CREATE TABLE user
+(
+    id       INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(20) NOT NULL,
+    password VARCHAR(20) NOT NULL
+);
+```
+
+## 唯一约束
+``` sql
+CREATE TABLE user
+(
+    id       INT PRIMARY KEY,
+    username VARCHAR(20) NOT NULL UNIQUE,
+    password VARCHAR(20) NOT NULL
+
+);
+```
+
+## 默认值
+``` sql
+CREATE TABLE user
+(
+    id       INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(20) NOT NULL UNIQUE,
+    country  VARCHAR(20) DEFAULT 'China'
+);
+```
+
+## 手动开启事务
+``` sql
+start transaction ;
+INSERT INTO user(username, password)
+VALUES ('admin', '112233');
+INSERT INTO user(username, password)
+VALUES ('jack', 'abc123');
+commit ;
+```
+
+## 自动提交事物
+注意: MYSQL 默认是开启自动提事务的
+* 显示 MYSQL 事务是否自动提交
+    ``` sql
+    SHOW VARIABLES like 'autocommit';
+    ```
+* 关闭自动提交事务
+    ``` sql
+    SET @@AUTOCOMMIT=OFF;
+    ```
+* 开启自动提交事务
+    ``` sql
+    SET @@AUTOCOMMIT=ON;
+    ```
+
+## 事务的四大特性
+* 原子性
+* 一致性
+* 隔离性
+* 持久性
+
+## 并发访问常见异常
+* 脏读
+* 不可重复读
+* 幻读
+
+## MYSQL 事务隔离级别
+
+* 查看事务隔离级别
+    ```` sql
+    show  variables like 'transaction_isolation'
+    ````
+
+## 外键约束
+
+* 创建外键约束
+    ``` sql
+    CREATE TABLE dept
+    (
+        id       int PRIMARY KEY AUTO_INCREMENT,
+        name     varchar(20) NOT NULL,
+        location varchar(20) NOT NULL
+    );
+
+
+    CREATE TABLE employee
+    (
+        id      INT PRIMARY KEY AUTO_INCREMENT,
+        name    VARCHAR(100) NOT NULL,
+        sex     VARCHAR(10),
+        salary  DOUBLE       NOT NULL,
+        dept_id INT,
+        CONSTRAINT emp_dept_fk FOREIGN KEY (dept_id) REFERENCES dept (id)
+    );
+    ```
+
+* 删除外键约束
+    ``` sql
+    ALTER TABLE employee
+        DROP FOREIGN KEY emp_dept_fk;
+    ```
+
+* 给已有表添加外键约束
+    ``` sql
+    ALTER TABLE employee
+        ADD CONSTRAINT emp_dept_fk FOREIGN KEY (dept_id) REFERENCES dept (id);
+    ```
+
+## 级联删除
+* 创建表实现级联删除
+    ``` sql
+    CREATE TABLE dept
+    (
+        id       int PRIMARY KEY AUTO_INCREMENT,
+        name     varchar(20) NOT NULL,
+        location varchar(20) NOT NULL
+    );
+
+    CREATE TABLE employee
+    (
+        id      INT PRIMARY KEY AUTO_INCREMENT,
+        name    VARCHAR(100) NOT NULL,
+        sex     VARCHAR(10),
+        salary  DOUBLE       NOT NULL,
+        dept_id INT,
+        CONSTRAINT emp_dept_fk FOREIGN KEY (dept_id) REFERENCES dept (id)
+            ON DELETE CASCADE
+    );
+    ```
+* 为已有表添加级联删除
+    ``` sql
+    ALTER TABLE employee DROP FOREIGN KEY emp_dept_fk;
+    
+    ALTER TABLE employee
+        ADD CONSTRAINT emp_dept_fk FOREIGN KEY (dept_id) REFERENCES dept (id) ON DELETE CASCADE;
+    ```
