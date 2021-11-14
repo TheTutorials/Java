@@ -1034,3 +1034,145 @@ WHERE category_id IN (SELECT id FROM category WHERE category.name IN ('手机', 
 ## 数据库设计三范式
 
 ## 数据设计反三范式
+
+## 索引的分类
+* 主键索引
+* 唯一索引
+* 普通索引
+
+<details>
+<summary>例题: 创建主键索引<br/>
+</summary>
+
+``` sql
+ALTER TABLE user
+    ADD PRIMARY KEY (id);
+```
+</details>
+
+<details>
+<summary>例题: 创建唯一索引<br/>
+</summary>
+
+``` sql
+CREATE UNIQUE INDEX index_name ON user (name);
+```
+</details>
+
+<details>
+<summary>例题: 创建普通索引<br/>
+</summary>
+
+``` sql
+ALTER TABLE user
+    ADD INDEX index_name (name);
+```
+</details>
+
+<details>
+<summary>例题: 删除索引<br/>
+</summary>
+
+``` sql
+ALTER TABLE user
+    DROP INDEX index_name;
+```
+</details>
+
+## 视图
+
+<details>
+<summary>例题: 创建视图<br/>
+</summary>
+
+``` sql
+CREATE VIEW product_category_view AS
+SELECT p.id AS pid, p.NAME AS pname, p.price AS pprice, c.id AS cid, c.name AS cname
+FROM product p
+         LEFT JOIN category c on c.id = p.category_id;
+```
+</details>
+
+<details>
+<summary>例题: 查询各个分类的商品平均价格<br/>
+</summary>
+
+``` sql
+SELECT pcv.cname AS '商品分类', AVG(pcv.pprice) AS '平均价格'
+FROM product_category_view pcv
+GROUP BY pcv.cname;
+```
+</details>
+
+<details>
+<summary>例题: 查询最贵的手机信息<br/>
+</summary>
+
+``` sql
+SELECT *
+FROM product_category_view pcv
+WHERE pcv.cname = '手机'
+  AND pcv.pprice
+    = (SELECT MAX(pprice) FROM product_category_view WHERE cname = '手机');
+```
+</details>
+
+## 存储过程
+
+<details>
+<summary>例题: 存储过程查询所有用户<br/>
+</summary>
+
+``` sql
+DELIMITER $$
+CREATE PROCEDURE listUsers()
+BEGIN
+    SELECT * FROM user;
+end $$
+CALL listUsers(); # 调用存储过程
+```
+</details>
+
+<details>
+<summary>例题: 存储过程查询指定id用户信息<br/>
+</summary>
+
+``` sql
+DELIMITER $$
+CREATE PROCEDURE getUserById(IN user_id INT)
+BEGIN
+    SELECT * FROM user WHERE id = user_id;
+end $$
+CALL getUserById(1); # 调用存储过程
+```
+</details>
+
+<details>
+<summary>例题: 存储过程插入用户信息，返回1表示插入成功<br/>
+</summary>
+
+``` sql
+DELIMITER $$
+CREATE PROCEDURE insertUser(IN id INT, IN name VARCHAR(20), IN age INT, OUT ret_num INT)
+BEGIN
+    INSERT INTO user(id, name, age) VALUES (id, name, age);
+    SET @ret_num = 1;
+    SELECT @ret_num;
+end $$
+
+CALL insertUser(2, '杜远超', '26', @ret_num);
+```
+</details>
+
+## 触发器
+
+## DCL 控制管理
+<details>
+<summary>例题: 创建普通用户<br/>
+</summary>
+
+``` sql
+CREATE USER 'jack'@'localhost' IDENTIFIED BY '123456';
+CREATE USER 'tom'@'%' IDENTIFIED BY '123456'; # 任意电脑都可以登陆
+```
+</details>
