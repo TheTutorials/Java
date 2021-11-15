@@ -571,3 +571,80 @@ public class DruidUtils {
 }
 ```
 </details>
+
+## 批处理
+<details>
+<summary>例题: 批处理插入数据<br/>
+</summary>
+
+``` java
+  public static void main(String[] args) throws SQLException {
+    Connection connection = DruidUtils.getConnection();
+    String sql = "INSERT INTO user(id, name, password) VALUES(?, ?, ?)";
+    assert connection != null;
+    PreparedStatement preparedStatement = connection.prepareStatement(sql);
+    for (int i = 1; i <= 10000; ++i) {
+      preparedStatement.setInt(1, 100 + i);
+      preparedStatement.setString(2, "name" + (i + 100));
+      preparedStatement.setString(3, "password" + (i + 100));
+      preparedStatement.addBatch();
+    }
+    preparedStatement.executeBatch();
+    DruidUtils.close(connection, preparedStatement);
+  }
+```
+</details>
+
+## 元数据
+<details>
+<summary>例题: 查看数据库版本<br/>
+</summary>
+
+``` sql
+SELECT VERSION();
+```
+</details>
+
+<details>
+<summary>例题: 查看表的详细信息<br/>
+</summary>
+
+``` sql
+SHOW COLUMNS FROM user;
+```
+</details>
+
+<details>
+<summary>例题: JDBC 获取数据库元数据<br/>
+</summary>
+
+``` java
+Connection connection = DruidUtils.getConnection();
+assert connection != null;
+DatabaseMetaData metaData = connection.getMetaData();
+System.out.println("数据库url: " + metaData.getURL());
+System.out.println("数据库用户名: " + metaData.getUserName());
+System.out.println("数据库驱动: " + metaData.getDriverName());
+System.out.println("数据库产品名称: " + metaData.getDatabaseProductName());
+System.out.println("数据库产品版本: " + metaData.getDatabaseProductVersion());
+System.out.println("数据库驱动版本: " + metaData.getDriverVersion());
+connection.close();
+```
+</details>
+
+<details>
+<summary>例题: JDBC 获取结果集元数据<br/>
+</summary>
+
+``` java
+Connection connection = DruidUtils.getConnection();
+String sql = "SELECT * FROM user";
+PreparedStatement preparedStatement = connection.prepareStatement(sql);
+ResultSet resultSet = preparedStatement.executeQuery();
+ResultSetMetaData metaData = resultSet.getMetaData();
+System.out.println("共有" + metaData.getColumnCount() + "列");
+System.out.println("第2列的名称为" + metaData.getColumnName(2));
+System.out.println("第2列的类型为" + metaData.getColumnType(2));
+DruidUtils.close(connection, preparedStatement, resultSet);
+```
+</details>
