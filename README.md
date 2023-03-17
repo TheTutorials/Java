@@ -1,6 +1,7 @@
 # Java 架构师学习路线
 
 ### [Java SE](docs/JavaSE)
+* [计算机基础知识](docs/JavaSE/计算机基础知识.md)
 * [Java基础](docs/JavaSE/Java基础.md)
 * [面向对象](docs/JavaSE/面向对象.md)
 * [集合](docs/JavaSE/集合.md)
